@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Dashboard Screen</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+  <!-- For DataTables -->
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.css">
+  <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.js"></script>
+</head>
+<body>
+    <h1>Welcome to the Dashboard screen</h1>
+
+        <table class="table table-hover table-striped dataTable">
+            <thead>
+                <tr>
+                    <th class="sorting">Username</th>
+                    <th class="sorting">Email</th>
+                    <th class="sorting">Address</th>
+                    <th class="sorting">Cutters</th>
+                    <th class="sorting">tables</th>
+                    <th class="sorting">Glasses</th>
+                    <th class="sorting">Watches</th>
+                    <th class="sorting">Ordered Date</th>
+                    <th class="sorting">Status of the Order</th>
+                    <th class="sorting">Email the status of the order</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% for(var i=0;i<data.length;i++){   %>
+                <tr id="<%=data[i].email%>parent">
+                    <td scope="row"><%= data[i].name %></td>
+                    <td scope="row"><%= data[i].email %></td>
+                    <td scope="row"><%= data[i].address %></td>
+                    <td scope="row"><%= data[i].cutters %></td>
+                    <td scope="row"><%= data[i].table %></td>
+                    <td scope="row"><%= data[i].glasses %></td>
+                    <td scope="row"><%= data[i].watches %></td>
+                    <td scope="row"><%= data[i].Orderdate %></td>
+                    <%if(data[i].difference == 0){%>
+                        <td style="background-color:red;" id="status"><b>In progress</b></td>
+                    <%}else if(data[i].difference == 1){%>
+                        <td style="background-color:yellow;" id="status"><b>Dispatched</b></td>
+                    <%}else{%>
+                        <td style="background-color:green;" id="status"><b>Delivered</b></td>
+                    <%}%>
+                    <td scope="row"> 
+                        <button id="<%=data[i].email%>" class="btn btn-primary sendemail">Send Email</button>
+                    </td>
+                    
+                </tr>
+                <% } %>
+            </tbody>
+        </table>
+      </form>
+      <script type="text/javascript" src="../js/Dashboardsajax.js"></script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Add new Data</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+  <!-- For DataTables -->
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.css">
+  <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.js"></script>
+</head>
+<body>
+    <h1>Please select the items you wish to order and enter your details</h1>
+
+    <form action="/orders/save" method="POST">
+        <div class="form-group">
+            <label for="username">Name:</label>
+            <input type="input" class="form-control" id="username" name="username" placeholder="Enter your name">
+          </div>
+        <div class="form-group">
+          <label for="exampleInputEmail1">Email address:</label>
+          <input type="email" class="form-control" name="Email" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+          <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+        </div>
+        <div class="form-group">
+          <label for="Address">Address:</label>
+          <input type="input" class="form-control" name="address" id="Address" placeholder="Enter Address">
+        </div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Product name</th>
+                    <th>Number of Products needed</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td scope="row">Cutters</td>
+                    <td><input type="number" name="cutters"></td>
+                </tr>
+                <tr>
+                    <td scope="row">Table</td>
+                    <td><input type="number" name="table"></td>
+                </tr>
+                <tr>
+                    <td scope="row">Glasses</td>
+                    <td><input type="number" name="glasses"></td>
+                </tr>
+                <tr>
+                    <td scope="row">Watch</td>
+                    <td><input type="number" name="watch"/></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+
+
+</body>
+</html>
